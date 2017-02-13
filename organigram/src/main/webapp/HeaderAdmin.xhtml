@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet name="style1.css" library="Default"></h:outputStylesheet>
+	</h:head>
+	
+	<h:body>
+		<h:graphicImage library="Default" name="omnishore.png" />
+			
+	<br/><br/><br/>
+
+		<div id="nav">
+			<h:panelGroup styleClass="navbarGroup">
+				<h:panelGrid styleClass="navbarPanel" columns="5">
+					<h:outputLink styleClass="navbar" value="Accueil.jsf">Accueil</h:outputLink>
+					<h:outputLink styleClass="navbar" value="Organigramme.jsf">Organigramme</h:outputLink>
+					<h:outputLink styleClass="navbar" value="MajEntite.jsf">MAJ des Entites</h:outputLink>
+					<h:outputLink styleClass="navbar" value="MajResponsable.jsf">MAJ des Responsables</h:outputLink>
+					<h:outputLink styleClass="navbar" value="MajCollaborateur.jsf">MAJ des Collaborateurs</h:outputLink>
+				</h:panelGrid>
+			</h:panelGroup>
+		</div>
+	</h:body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet name="style1.css" library="Default"></h:outputStylesheet>
+	</h:head>
+	
+	<h:body>
+		
+		<ui:include src="Header.xhtml"></ui:include>
+		<br/><br/><br/>
+		<ui:fragment rendered="#{loginBean.seConnecter() eq false}">
+			<fieldset>
+				<legend>Connexion :</legend>
+				<div id="cxOrganigramme">
+					<h:form>
+					
+						<h:panelGrid columns="2" cellpadding="2">
+							<h:outputLabel styleClass="lblHeader" id="lblLogin" value="Login"></h:outputLabel>
+							<h:inputText styleClass="inputTexts" value="#{loginBean.compte.login}"></h:inputText>
+		
+							<h:outputLabel styleClass="lblHeader" value="Mot de passe"></h:outputLabel>
+							<h:inputSecret styleClass="inputTexts" value="#{loginBean.compte.motDePasse}" />
+						</h:panelGrid>
+						<h:panelGrid columns="2" cellpadding="6">
+							<h:commandButton styleClass="btn" value="Se connecter"  action="#{loginBean.seConnecter()}">
+								<f:param name="btnId" value="connexion"/>
+							</h:commandButton>
+							<h:commandButton styleClass="btn" value="S'inscrire" action="#{loginBean.afficherPage()}">
+								<f:param name="btnId" value="inscription"/>
+							</h:commandButton>
+						</h:panelGrid>
+					</h:form>
+				</div>
+				<br/>
+				<h:outputLabel>Vous n'avez pas un compte ? <b><h:outputLink value="Inscription1.jsf">Inscrivez-vous</h:outputLink></b></h:outputLabel>
+			</fieldset>
+		</ui:fragment>
+		<ui:fragment rendered="#{loginBean.seConnecter() eq true}">
+				
+			<h1>ICI L'ORGANIGRAMME</h1>
+		</ui:fragment>
+	</h:body>
+</html>

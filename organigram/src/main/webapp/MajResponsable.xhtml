@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+	<h:head>
+		<h:outputStylesheet name="style1.css" library="Default"></h:outputStylesheet>
+	</h:head>
+	
+	<h:body>
+	
+		<ui:include src="HeaderAdmin.xhtml"></ui:include>
+		
+		<br/><br/>
+		<fieldset>
+		<legend><h2 align="center">Mise à jour de Responsables </h2></legend>
+		
+			<rich:modalPanel id="Busy" autosized="true" zindex="3000">
+			   <h:panelGrid width="600" cellpadding="20" styleClass="noStyle" columns="1">
+			   		<h:outputLink style="width:200px;" value="AjoutResponsable.jsf">
+					  	<h:graphicImage style="width:30px;height:30px" library="Default" name="add.png"/>
+				      	<h2>&nbsp;Ajouter un responsable</h2>
+			      	</h:outputLink>
+			   </h:panelGrid>
+			</rich:modalPanel>
+				
+		<h:form id="form">
+		   <p:growl id="msgs" showDetail="true"/>
+		 
+		   <p:dataTable editable="true" id="responsables" var="responsable" value="#{majResponsableBean.responsablesList}" style="margin-bottom:20px">
+		       <f:facet name="header">
+		           Liste des responsables 
+		       </f:facet>
+		 
+		       <p:ajax event="rowEdit" listener="#{majResponsableBean.onRowEdit}" update=":form:msgs form" />
+		       <p:ajax event="rowEditCancel" listener="#{majResponsableBean.onRowCancel}" update=":form:msgs" />
+		 
+		       <p:column headerText="Id">
+		           <p:cellEditor>
+		               <f:facet name="output"><h:outputText value="#{responsable.idCollaborateur}" /></f:facet>
+		               <f:facet name="input"><p:inputText value="#{responsable.idCollaborateur}" style="width:100%"/></f:facet>
+		           </p:cellEditor>
+		       </p:column>
+		 
+		       <p:column headerText="Nom">
+		           <p:cellEditor>
+		               <f:facet name="output"><h:outputText value="#{responsable.nom}" /></f:facet>
+		               <f:facet name="input"><h:inputText value="#{responsable.nom}" style="width:100%"/></f:facet>
+		           </p:cellEditor>
+		       </p:column>
+		 
+		       <p:column headerText="Prenom">
+		           <p:cellEditor>
+		               <f:facet name="output"><h:outputText value="#{responsable.prenom}" /></f:facet>
+		               <f:facet name="input"><p:inputText value="#{responsable.prenom}" style="width:100%"/></f:facet>
+		           </p:cellEditor>
+		       </p:column>
+		 
+		       <p:column headerText="Entité">
+		           <p:cellEditor>
+		               <f:facet name="output"><h:outputText value="#{responsable.entite}" /></f:facet>
+		               <f:facet name="input"><p:inputText value="#{responsable.entite}" style="width:100%"/></f:facet>
+		           </p:cellEditor>
+		       </p:column>
+		 
+		       <p:column style="width:32px" headerText="Actions">
+		           <p:rowEditor/>
+                   <p:commandLink id="deleteLink"  update="@form" process="@this" styleClass="ui-icon ui-icon-trash" action="#{majResponsableBean.deleteResponsable(responsable.idCollaborateur)}"/>
+		       </p:column>
+		   </p:dataTable>
+		   
+
+		
+		   
+		</h:form>
+		</fieldset>
+	</h:body>
+</html>

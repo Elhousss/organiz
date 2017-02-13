@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet name="style1.css" library="Default"></h:outputStylesheet>
+	</h:head>
+	
+	<h:body>
+	
+		<ui:include src="BlankHeader.xhtml"></ui:include>
+		
+			<br/><br/><br/>
+			<center>
+				<fieldset>
+				<legend>Inscription :</legend>
+				<br/>
+					<h:form>
+						<h:panelGrid columns="2" cellpadding="8">
+							<h:outputLabel value="Nom"></h:outputLabel>
+							<h:inputText value="#{majResponsableBean.responsable.nom}"></h:inputText>
+							<h:outputLabel value="Prenom"></h:outputLabel>
+							<h:inputText value="#{majResponsableBean.responsable.prenom}"></h:inputText>
+							<h:outputLabel value="isResponsable"></h:outputLabel>
+							<h:inputText value="#{majResponsableBean.responsable.isResponsable}"></h:inputText>
+						</h:panelGrid>
+						<h:panelGrid columns="2" cellpadding="8">
+							<h:commandButton styleClass="btn" value="Valider" action="#{majResponsableBean.creerResponsable()}">
+								<f:param name="btnId" value="valider"/>
+							</h:commandButton>
+							<h:commandButton styleClass="btn" value="Annuler" action="Accueil" >
+								<f:param name="btnId" value="viderLesChamps"/>
+							</h:commandButton>
+						</h:panelGrid>
+					</h:form>
+					<br/>
+				</fieldset>
+			</center>
+	</h:body>
+</html>

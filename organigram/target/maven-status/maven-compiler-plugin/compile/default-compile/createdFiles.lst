@@ -1,0 +1,11 @@
+projet\beans\Entite.class
+projet\beans\Fonction.class
+projet\dao\CompteDaoImpl.class
+projet\beans\Collaborateur.class
+com\omnishore\managedBeans\MajEntiteBean.class
+projet\beans\Titre.class
+com\omnishore\managedBeans\InscriptionBean.class
+projet\beans\Responsable.class
+projet\dao\CompteDao.class
+projet\beans\Administrateur.class
+projet\beans\Compte.class
